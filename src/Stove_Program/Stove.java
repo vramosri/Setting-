@@ -1,9 +1,9 @@
-package Stove_Program
-import java.util.ArrayList
+package Stove_Program;
+import java.util.ArrayList;
 
 public class Stove
 {
-	ArrayList burners = new ArrayList();
+	ArrayList<Burner> burners = new ArrayList<Burner>();
 	boolean hot;
 	private Stove(int numBurners)
 	{
@@ -12,19 +12,19 @@ public class Stove
 		hot = false;
 	}
 	
-	private String displayStove()
+	private void displayStove()
 	{
-		System.println("Stove -------------------");
+		System.out.println("Stove -------------------");
 		for (int i = 0; i < burners.size(); i++)
 		{
 			Burner burner = burners.get(i);
 			burner.toString();
-			if (burner.getTemperature() == HOT)
+			if (burner.getTemp() == Burner.Temperature.HOT)
 				hot = true;
 		}
 		if (hot == true)
 			System.out.println("RED LIGHT - HOT BURNER ALERT");
-		System.println();
+		System.out.println();
 	}
 	public static void main(String[] args)
 	{
@@ -36,22 +36,26 @@ public class Stove
 		//thirdSetting();
 	}
 	
-	private void timeSim(Stove model, int checkBackIn)
+	private static void timeSim(Stove model, int checkBackIn)
 	{
 		for (int i = 0; i <= checkBackIn; i++)
 		{
-			for (int i = 0; i < model.burners.size(); i++)
+			for (int j = 0; j < model.burners.size(); j++)
 			{
-				model.burners.get(i).updateTemperature();
+				model.burners.get(j).updateTemperature();
 			}
+		}
+		for (int k = 0; k < model.burners.size(); k++)
+		{
+			model.burners.get(k).displayMethod();
 		}
 	}
 	
-	private void firstSetting(Stove model)
+	private static void firstSetting(Stove model)
 	{
 		for (int i = 0; i < 3; i++)
 			model.burners.get(0).increaseSetting();
-		for (int i = 0; i < 2; i++)
+		for (int j = 0; j < 2; j++)
 			model.burners.get(1).increaseSetting();
 		model.burners.get(2).increaseSetting();
 	}
