@@ -1,0 +1,6 @@
+3ebbe7b788b7af859191a62f32589efa828fa81b Second Commit
+562af9cc199b5eef0c5e20f4178d5fb2ee316000 Delete Setting.java
+e31ef0940ad048242c13c2f2c3635c12a2218b9a fixing location of Stove.java?
+09c055a77e984a8c7e2435bc06b0d8a3ec0b40d0 Merge branch 'master' of https://github.com/vramosri/Setting-
+0e0dbed5a806b3e95924b35c29182971af15bad9 Initial Stove Commit
+694260278ebbb6346e8ed01a470970e9c9b78e51 Initial Commit

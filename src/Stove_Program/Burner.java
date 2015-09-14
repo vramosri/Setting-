@@ -2,11 +2,13 @@ package Stove_Program;
 
 
 public class Burner {
-
+	
+	public Temperature temp; 	
 	public Setting setting; 
 	final int TIME_DURATION = 2; 
 	int timer = 0; 
 	public enum Temperature{HOT("HOT SURFACE! DON'T TOUCH"), WARM("CAREFUL"), COLD("coooool");
+		
 	
 		
 	private String word; 
@@ -24,22 +26,8 @@ public class Burner {
 	};
 	
 
-
-
-	public void setTemp(Temperature temp) {
-		this.temp = temp;
-	}
-
-
-
-
-
-	public Temperature temp; 	
 	
 	
-	public Temperature getTemp() {
-		return temp;
-	}
 
 		 
 	public Burner()
@@ -55,24 +43,26 @@ public class Burner {
     {
     	switch(setting)
     	{
-    	case OFF: setting = Setting.LOW;   
-    	case LOW: setting = Setting.MEDIUM;
-    	case MEDIUM: setting = Setting.HIGH; 
-    	case HIGH: setting = Setting.HIGH;
+    	case OFF: setting = Setting.LOW; break;  
+    	case LOW: setting = Setting.MEDIUM; break;
+    	case MEDIUM: setting = Setting.HIGH; break;
+    	case HIGH: setting = Setting.HIGH; break;
     	
     	}
+    	timer += TIME_DURATION;
     }
     
     public void decreaseSetting() 
     {
     	switch(setting)
     	{
-    	case OFF: setting = Setting.OFF;   
-    	case LOW: setting = Setting.OFF;
-    	case MEDIUM: setting = Setting.LOW; 
-    	case HIGH: setting = Setting.MEDIUM;
+    	case OFF: setting = Setting.OFF; break;
+    	case LOW: setting = Setting.OFF; break;
+    	case MEDIUM: setting = Setting.LOW; break;
+    	case HIGH: setting = Setting.MEDIUM; break;
     	
     	}
+    	timer += TIME_DURATION;
     }
     
     
@@ -81,15 +71,16 @@ public class Burner {
     public void updateTemperature()
 	
 	{
+    	//System.out.println(setting);
     	if (timer == 0)
     	{
     		
     	switch (setting)
     	{
-    	case OFF: temp = Temperature.COLD;  
-    	case LOW: temp = Temperature.WARM;
-    	case MEDIUM: temp = Temperature.WARM; 
-    	case HIGH: temp = Temperature.HOT; 
+    	case OFF: temp = Temperature.COLD; break;
+    	case LOW: temp = Temperature.WARM; break;
+    	case MEDIUM: temp = Temperature.WARM; break;
+    	case HIGH: temp = Temperature.HOT; break;
     	
     	}
     	
@@ -99,6 +90,7 @@ public class Burner {
     	{
     	timer--;
     	}
+    	//System.out.println(setting);
 	}
     
     
@@ -107,10 +99,14 @@ public class Burner {
     
     public void displayMethod()
     {
-    	System.out.println(setting.toString() + "-------" + temp.toString()); 
+    	System.out.println(setting + "-------" + temp); 
     	
     }
-    
+	
+	public Temperature getTemp() {
+		return temp;
+	}
+
     
 	
 	
